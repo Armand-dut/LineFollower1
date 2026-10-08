@@ -10,3 +10,6 @@
 |5|Batterijhouder |2x 18650 Batterijhouder - Klemcontacten - Draden per Cel| N | 1 | 2 |2|
 |6|Protobord |Protobord 8 X 12 cm| N | 1 | 3,50 |3,50|
 |7|Motorhouder |Motorhouder + 2 bouten en moeren | N | 1 | 3,50 |3,50|
+|8|Arduino NANO | Arduino Nano R3 - kloon - met headers| R | 1 | 8,60 |8,60|
+|9| Wielen | Aliexpress| N | 1 |2 |2 |
+|10|Batterij | 18650| R | 1 |3 |3|
