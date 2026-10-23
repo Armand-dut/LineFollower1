@@ -11,4 +11,5 @@ HC-05 op pinnen 10 en 11. LED 1 op pin 9 en LED 2 op PWM-pin 6. Baudrate: 9600.
 Upload de code, verbind de smartphone met de HC-05 en verstuur commando's via de Bluetooth-terminalapp. Controleer de werking van de leds en de ontvangen antwoorden.
 
 ## Schema
-<img width="1169" height="827" alt="Bluetooth" src="https://github.com/user-attachments/assets/617b1de0-2707-4c45-abb7-3fe086f87bf4" />
+<img width="1169" height="827" alt="Schematic_LineFollower1_2026-10-23" src="https://github.com/user-attachments/assets/e4d40538-5c19-4f42-aab1-a8056e8a6eac" />
+
