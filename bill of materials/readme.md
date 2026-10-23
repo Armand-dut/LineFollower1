@@ -24,7 +24,3 @@
 
 |Totaal| | | | | |€ 52,70|
 
-Opmerking:
-- De Nano staat hier als recup met € 0,00 omdat deze niet als nieuwe aankoop is meegeteld; bij een tweede meting kan de werkelijke aankoopprijs worden ingevuld.
-- De wielen zijn hier benoemd met de relevante maatvoering voor een N20-as: 42 mm diameter en 6 mm asgat.
-- De extra onderdelen uit het schema (S2, LED, weerstanden, aan/uit-schakelaar en lader) zijn toegevoegd zodat de BOM overeenkomt met de specificaties en het schema.
