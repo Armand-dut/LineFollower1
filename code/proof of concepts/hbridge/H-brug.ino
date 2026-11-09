@@ -1,7 +1,7 @@
 const int IN1 = 5;
 const int IN2 = 6;
-const int IN3 = 9;
-const int IN4 = 10;
+const int IN3 = 10;
+const int IN4 = 11;
 const int FAULT = 4;
 
 int snelheidA = 0;
