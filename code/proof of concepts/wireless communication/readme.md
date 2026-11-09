@@ -22,8 +22,7 @@ Use the software serial pins so the Nano's D0/D1 USB serial pins remain free:
 | D6 (PWM) | LED 2 anode; LED cathode through its resistor to GND |
 
 The divider is on the Nano's 5 V TX signal: D11 → 1 kΩ → divider node → HC-08 RXD, with 2 kΩ from the divider node to GND. Connect all grounds together. Power the HC-08 from 3.3 V, as in the checked build.
-
-![Corrected Arduino Nano and HC-08 wiring diagram](wireless-communication-wiring.svg)
+<img width="1169" height="827" alt="Schematic_LineFollower1_2026-11-09" src="https://github.com/user-attachments/assets/a9360728-3ed3-47f3-bd34-9e986b1be7bc" />
 
 The SVG above is the wiring reference for this sketch. The older `SCH_LineFollower1_2026-10-23 (1).json` export is a legacy project schematic and does not show this Bluetooth/LED setup; do not use that export to wire this proof of concept.
 
