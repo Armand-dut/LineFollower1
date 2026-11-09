@@ -1,40 +1,41 @@
-# Bluetooth (HC-08) proof of concept
+# Bluetooth (HC-08) – proof of concept
 
-## Hardware
+## Benodigdheden
 
 - Arduino Nano
-- HC-08 Bluetooth Low Energy (BLE) module
-- Two LEDs, each with a current-limiting resistor (for example 220–330 Ω)
-- 1 kΩ and 2 kΩ resistors for the Arduino-to-HC-08 logic-level divider
-- A phone with a BLE UART/serial-terminal app
+- HC-08 Bluetooth Low Energy-module (BLE)
+- Twee leds, elk met een stroombegrenzende weerstand (bijvoorbeeld 220–330 Ω)
+- Weerstanden van 1 kΩ en 2 kΩ voor de spanningsdeler tussen de Arduino en de HC-08
+- Een smartphone met een BLE-UART- of seriële-terminalapp
 
-## Wiring
+## Aansluiten
 
-Use the software serial pins so the Nano's D0/D1 USB serial pins remain free:
+Gebruik SoftwareSerial, zodat de USB-seriële pinnen D0 en D1 van de Nano vrij blijven:
 
-| Arduino Nano | Connect to |
+| Arduino Nano | Aansluiten op |
 | --- | --- |
-| D10 (SoftwareSerial RX) | HC-08 TXD |
-| D11 (SoftwareSerial TX) | HC-08 RXD through the 1 kΩ / 2 kΩ voltage divider shown below |
+| D10 (SoftwareSerial RX/ontvangen) | HC-08 TXD |
+| D11 (SoftwareSerial TX/verzenden) | HC-08 RXD via de spanningsdeler van 1 kΩ en 2 kΩ hieronder |
 | 3V3 | HC-08 VCC |
-| GND | HC-08 GND and the bottom of the divider |
-| D9 | LED 1 anode; LED cathode through its resistor to GND |
-| D6 (PWM) | LED 2 anode; LED cathode through its resistor to GND |
+| GND | HC-08 GND en de onderkant van de spanningsdeler |
+| D9 | Anode van led 1; sluit de kathode via een weerstand aan op GND |
+| D6 (PWM) | Anode van led 2; sluit de kathode via een weerstand aan op GND |
 
-The divider is on the Nano's 5 V TX signal: D11 → 1 kΩ → divider node → HC-08 RXD, with 2 kΩ from the divider node to GND. Connect all grounds together. Power the HC-08 from 3.3 V, as in the checked build.
-<img width="1169" height="827" alt="Schematic_LineFollower1_2026-11-09" src="https://github.com/user-attachments/assets/a9360728-3ed3-47f3-bd34-9e986b1be7bc" />
+De spanningsdeler verlaagt het 5V-zendsignaal van de Nano: D11 → 1 kΩ → knooppunt → HC-08 RXD. Sluit vanaf het knooppunt ook een weerstand van 2 kΩ aan op GND. Verbind alle aardpunten met elkaar. Voed de HC-08 met 3,3 V, zoals bij de gecontroleerde opstelling.
 
-The SVG above is the wiring reference for this sketch. The older `SCH_LineFollower1_2026-10-23 (1).json` export is a legacy project schematic and does not show this Bluetooth/LED setup; do not use that export to wire this proof of concept.
+![Aansluitschema van de Arduino Nano en HC-08](wireless-communication-wiring.svg)
 
-## Commands and duplex test
+Het SVG-bestand hierboven is het aansluitschema voor deze sketch. Het oudere exportbestand `SCH_LineFollower1_2026-10-23 (1).json` is een verouderd projectschema en toont deze Bluetooth- en led-aansluitingen niet. Gebruik dat bestand daarom niet om deze proof of concept aan te sluiten.
 
-Set the HC-08 UART baud rate to 9600. Pair/connect from a BLE UART app and send newline-terminated commands:
+## Commando's en duplexcommunicatie testen
 
-- `ON` — turn LED 1 on.
-- `OFF` — turn LED 1 off.
-- `PWM 128` — set LED 2 brightness to a value from 0 to 255.
-- `STATUS` — request the current LED state.
+Stel de UART-baudrate van de HC-08 in op 9600. Maak verbinding met een BLE-UART-app en verstuur commando's die eindigen op een nieuwe regel:
 
-The Arduino sends a Bluetooth reply for every command, including an error reply for unrecognized or invalid commands. This demonstrates communication in both directions. The sketch also logs replies to the USB serial monitor at 9600 baud.
+- `ON` — zet led 1 aan.
+- `OFF` — zet led 1 uit.
+- `PWM 128` — stel de helderheid van led 2 in op een waarde van 0 tot en met 255.
+- `STATUS` — vraag de huidige ledstatus op.
 
-> HC-08 is a BLE module, not an HC-05 classic Bluetooth module. Use a BLE UART/terminal app; a classic-Bluetooth-only terminal app may not connect.
+De Arduino stuurt op elk commando een antwoord terug via Bluetooth. Onbekende of ongeldige commando's krijgen ook een foutmelding. Zo is communicatie in beide richtingen zichtbaar. De sketch toont de antwoorden ook in de USB-seriële monitor op 9600 baud.
+
+> De HC-08 is een BLE-module en geen klassieke HC-05-Bluetoothmodule. Gebruik een BLE-UART- of terminalapp; een app die alleen klassiek Bluetooth ondersteunt, kan mogelijk geen verbinding maken.

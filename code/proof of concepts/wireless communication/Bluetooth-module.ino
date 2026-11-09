@@ -1,11 +1,11 @@
 #include <SoftwareSerial.h>
 
-// SoftwareSerial constructor order: Arduino RX, Arduino TX.
-// Connect HC-08 TXD to D10 and D11 to HC-08 RXD through the level divider.
+// Volgorde van SoftwareSerial: Arduino RX (ontvangen), Arduino TX (verzenden).
+// Verbind HC-08 TXD met D10 en D11 via de spanningsdeler met HC-08 RXD.
 SoftwareSerial BTserial(10, 11);
 
-const byte led1Pin = 9;  // LED 1: on/off
-const byte led2Pin = 6;  // LED 2: PWM brightness
+const byte led1Pin = 9;  // Led 1: aan/uit
+const byte led2Pin = 6;  // Led 2: helderheid via PWM
 int led2Value = 128;
 bool led1On = false;
 
@@ -22,7 +22,7 @@ void setup() {
 
   Serial.begin(9600);
   BTserial.begin(9600);
-  Serial.println("HC-08 dual LED control ready.");
+  Serial.println("HC-08-ledregeling gereed.");
 }
 
 void loop() {
@@ -36,11 +36,11 @@ void loop() {
   if (command.equalsIgnoreCase("ON")) {
     led1On = true;
     digitalWrite(led1Pin, HIGH);
-    reply("OK: LED1 ON");
+    reply("OK: led 1 AAN");
   } else if (command.equalsIgnoreCase("OFF")) {
     led1On = false;
     digitalWrite(led1Pin, LOW);
-    reply("OK: LED1 OFF");
+    reply("OK: led 1 UIT");
   } else if (command.startsWith("PWM ")) {
     String valueText = command.substring(4);
     valueText.trim();
@@ -57,14 +57,14 @@ void loop() {
     if (valid && value >= 0 && value <= 255) {
       led2Value = value;
       analogWrite(led2Pin, led2Value);
-      reply("OK: LED2 PWM " + String(led2Value));
+      reply("OK: PWM led 2 = " + String(led2Value));
     } else {
-      reply("ERROR: use PWM 0..255");
+      reply("FOUT: gebruik PWM 0..255");
     }
   } else if (command.equalsIgnoreCase("STATUS")) {
-    reply(String("LED1=") + (led1On ? "ON" : "OFF") +
-          ", LED2_PWM=" + String(led2Value));
+    reply(String("Led 1=") + (led1On ? "AAN" : "UIT") +
+          ", PWM led 2=" + String(led2Value));
   } else {
-    reply("ERROR: use ON, OFF, PWM 0..255, or STATUS");
+    reply("FOUT: gebruik ON, OFF, PWM 0..255 of STATUS");
   }
 }
