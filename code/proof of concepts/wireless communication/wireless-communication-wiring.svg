@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" role="img" aria-labelledby="title desc">
+  <title id="title">Arduino Nano and HC-08 Bluetooth wiring</title>
+  <desc id="desc">SoftwareSerial uses Nano D10 for receive and D11 for transmit. D11 passes through a 1 kilo-ohm and 2 kilo-ohm voltage divider to HC-08 RXD. The HC-08 is powered from 3.3 volts. LEDs are connected to D9 and D6 through current-limiting resistors.</desc>
+  <style>
+    text { font-family: Arial, sans-serif; fill: #172033; }
+    .title { font-size: 25px; font-weight: 700; }
+    .label { font-size: 17px; font-weight: 600; }
+    .small { font-size: 14px; }
+    .board { fill: #e8f2ff; stroke: #315a8a; stroke-width: 3; }
+    .module { fill: #e7f8ee; stroke: #328354; stroke-width: 3; }
+    .wire { fill: none; stroke: #333; stroke-width: 4; }
+    .tx { stroke: #d34b37; }
+    .rx { stroke: #2867bd; }
+    .power { stroke: #d34b37; }
+    .ground { stroke: #333; }
+    .ledwire { stroke: #7d48a6; }
+    .resistor { fill: #fff3cd; stroke: #8a6d1d; stroke-width: 2; }
+    .node { fill: #172033; }
+  </style>
+  <text x="40" y="45" class="title">Arduino Nano ↔ HC-08 (9600 baud)</text>
+
+  <rect x="55" y="90" width="340" height="320" rx="20" class="board"/>
+  <text x="225" y="130" text-anchor="middle" class="label">Arduino Nano (5 V)</text>
+  <text x="80" y="183" class="label">D10 / SoftwareSerial RX</text>
+  <text x="80" y="238" class="label">D11 / SoftwareSerial TX</text>
+  <text x="80" y="300" class="label">3V3</text>
+  <text x="80" y="355" class="label">GND</text>
+  <text x="80" y="450" class="label">D9 → LED 1</text>
+  <text x="80" y="510" class="label">D6 PWM → LED 2</text>
+
+  <rect x="665" y="145" width="275" height="220" rx="18" class="module"/>
+  <text x="802" y="185" text-anchor="middle" class="label">HC-08 BLE module</text>
+  <text x="690" y="230" class="label">TXD</text>
+  <text x="690" y="280" class="label">RXD</text>
+  <text x="690" y="320" class="label">VCC (3.3 V)</text>
+  <text x="830" y="320" class="label">GND</text>
+
+  <!-- HC-08 TXD to Arduino software RX -->
+  <path d="M665 225 H570 V175 H395" class="wire rx"/>
+  <text x="455" y="163" class="small" fill="#2867bd">HC-08 TXD → D10</text>
+
+  <!-- Arduino TX level divider: 1k series, 2k to common ground -->
+  <path d="M395 230 H455" class="wire tx"/>
+  <rect x="455" y="216" width="78" height="28" rx="4" class="resistor"/>
+  <text x="494" y="235" text-anchor="middle" class="small">1 kΩ</text>
+  <path d="M533 230 H590 V275 H665" class="wire tx"/>
+  <circle cx="590" cy="230" r="6" class="node"/>
+  <path d="M590 230 V270" class="wire ground"/>
+  <rect x="576" y="270" width="28" height="65" rx="4" class="resistor"/>
+  <text x="590" y="299" text-anchor="middle" class="small">2</text>
+  <text x="590" y="318" text-anchor="middle" class="small">kΩ</text>
+  <path d="M590 335 V385 H450 V355 H395" class="wire ground"/>
+  <text x="430" y="211" class="small" fill="#b33327">D11 → 1 kΩ → node → HC-08 RXD</text>
+  <text x="605" y="367" class="small">Divider bottom to GND</text>
+
+  <!-- Power and common ground -->
+  <path d="M395 295 H520 V320 H665" class="wire power"/>
+  <path d="M395 350 H485 V385 H855 V365" class="wire ground"/>
+  <text x="451" y="287" class="small">3.3 V only</text>
+  <text x="730" y="410" class="small">Common ground</text>
+
+  <!-- LED pin references -->
+  <path d="M230 410 V438" class="wire ledwire"/>
+  <rect x="216" y="438" width="28" height="24" rx="3" class="resistor"/>
+  <path d="M230 462 V482" class="wire ledwire"/>
+  <circle cx="230" cy="490" r="8" fill="#f2cb35" stroke="#705e10" stroke-width="2"/>
+  <path d="M230 498 V520" class="wire ground"/>
+  <path d="M230 520 H320" class="wire ground"/>
+  <text x="265" y="457" class="small">220–330 Ω</text>
+  <text x="265" y="495" class="small">LED1</text>
+
+  <path d="M330 410 V438" class="wire ledwire"/>
+  <rect x="316" y="438" width="28" height="24" rx="3" class="resistor"/>
+  <path d="M330 462 V482" class="wire ledwire"/>
+  <circle cx="330" cy="490" r="8" fill="#f2cb35" stroke="#705e10" stroke-width="2"/>
+  <path d="M330 498 V520 H370" class="wire ground"/>
+  <text x="350" y="457" class="small">220–330 Ω</text>
+  <text x="350" y="495" class="small">LED2</text>
+
+  <text x="55" y="550" class="small">Each LED cathode returns to GND through its current-limiting resistor.</text>
+</svg>
