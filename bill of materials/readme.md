@@ -14,7 +14,6 @@
 |9|Wielen|Rijwielset voor N20-as, rubber, 42 mm Ø, 6 mm asgat, 2 stuks|N|€ 2,00|2|€ 4,00|
 |10|Batterij|18650 Li-ion cel (recup)|R|€ 3,00|1|€ 3,00|
 |11|Start/stop-knop S2|Pushbutton voor start/stop-circuit|N|€ 0,50|1|€ 0,50|
-|12|Power-on LED|Indicator LED voor voeding|N|€ 0,50|1|€ 0,50|
 |13|Weerstand|10 kΩ pull-down / limietweerstand|N|€ 0,10|1|€ 0,10|
 |14|Weerstand|450 Ω voor LED|N|€ 0,10|1|€ 0,10|
 |15|Aan/uit-schakelaar|Voeding aan/uit schakelen|N|€ 1,50|1|€ 1,50|
