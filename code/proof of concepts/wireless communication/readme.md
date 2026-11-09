@@ -25,9 +25,6 @@ De spanningsdeler verlaagt het 5V-zendsignaal van de Nano: D11 → 1 kΩ → kno
 
 <img width="1169" height="827" alt="Schematic_LineFollower1_2026-11-09" src="https://github.com/user-attachments/assets/e06b03d4-7a90-4606-b6f2-92cd840ec65a" />
 
-
-Het SVG-bestand hierboven is het aansluitschema voor deze sketch. Het oudere exportbestand `SCH_LineFollower1_2026-10-23 (1).json` is een verouderd projectschema en toont deze Bluetooth- en led-aansluitingen niet. Gebruik dat bestand daarom niet om deze proof of concept aan te sluiten.
-
 ## Commando's en duplexcommunicatie testen
 
 Stel de UART-baudrate van de HC-08 in op 9600. Maak verbinding met een BLE-UART-app en verstuur commando's die eindigen op een nieuwe regel:
