@@ -38,5 +38,3 @@ Stel de UART-baudrate van de HC-08 in op 9600. Maak verbinding met een BLE-UART-
 - `STATUS` — vraag de huidige ledstatus op.
 
 De Arduino stuurt op elk commando een antwoord terug via Bluetooth. Onbekende of ongeldige commando's krijgen ook een foutmelding. Zo is communicatie in beide richtingen zichtbaar. De sketch toont de antwoorden ook in de USB-seriële monitor op 9600 baud.
-
-> De HC-08 is een BLE-module en geen klassieke HC-05-Bluetoothmodule. Gebruik een BLE-UART- of terminalapp; een app die alleen klassiek Bluetooth ondersteunt, kan mogelijk geen verbinding maken.
