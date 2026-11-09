@@ -23,7 +23,8 @@ Gebruik SoftwareSerial, zodat de USB-seriële pinnen D0 en D1 van de Nano vrij b
 
 De spanningsdeler verlaagt het 5V-zendsignaal van de Nano: D11 → 1 kΩ → knooppunt → HC-08 RXD. Sluit vanaf het knooppunt ook een weerstand van 2 kΩ aan op GND. Verbind alle aardpunten met elkaar. Voed de HC-08 met 3,3 V, zoals bij de gecontroleerde opstelling.
 
-![Aansluitschema van de Arduino Nano en HC-08](wireless-communication-wiring.svg)
+<img width="1169" height="827" alt="Schematic_LineFollower1_2026-11-09" src="https://github.com/user-attachments/assets/e06b03d4-7a90-4606-b6f2-92cd840ec65a" />
+
 
 Het SVG-bestand hierboven is het aansluitschema voor deze sketch. Het oudere exportbestand `SCH_LineFollower1_2026-10-23 (1).json` is een verouderd projectschema en toont deze Bluetooth- en led-aansluitingen niet. Gebruik dat bestand daarom niet om deze proof of concept aan te sluiten.
 
