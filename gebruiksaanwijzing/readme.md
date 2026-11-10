@@ -106,3 +106,14 @@ De Arduino toont onder andere:
 - **De Serial Monitor ontvangt geen commando's:** controleer de baudrate van 9600 en de instelling Newline.
 
 **Veiligheid:** test de motoren eerst met de wielen vrij van de grond. Houd de robot vast of zorg dat hij voldoende vrije ruimte heeft wanneer je hem voor het eerst op de vloer laat rijden.
+
+## 9. opladen / vervangen batterijen
+Batterijen worden opgeladen met een lader die specifiek ontworpen is voor 18650 (Lithium) batterijen. Voor de batterijen kunnen worden ingestoken of verwijderd moet er gecontroleerd worden of de hoofdschekelaar van de pcb uitstaat (naar buitenste stand van de schakelaar)
+
+## 10. draadloze communicatie
+verbinding maken
+We gebruiken een Hc-08, deze kan een signaal spanning aan van 3,2-6V op zijn TX & RX pinnen. En 3,2-6V op zijn VCC.
+
+Een Hc-08 werkt op BLE (Bluetooth low energy), deze is dus compatible voor zowel android als iphone apparaten.
+
+De applicatie die gebruikt werdt om de commandos te sturen is "serial bluetooth terminal", is beschikbaar op de google playstore en zou ook op de iphone app store beschikbaar moeten zijn.
