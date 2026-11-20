@@ -2,7 +2,7 @@
 
 // Volgorde van SoftwareSerial: Arduino RX (ontvangen), Arduino TX (verzenden).
 // Verbind HC-08 TXD met D10 en D11 via de spanningsdeler met HC-08 RXD.
-SoftwareSerial BTserial(10, 11);
+SoftwareSerial BTserial(0, 1);
 
 const byte led1Pin = 9;  // Led 1: aan/uit
 const byte led2Pin = 6;  // Led 2: helderheid via PWM
